@@ -1,0 +1,41 @@
+<!-- <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="sentFile" />
+    <input type="submit" name="submit" value="Upload" />
+</form> -->
+
+{% load static %}
+<script src="{% static 'dashboard/jquery.js' %}"></script>
+<script src="{% static 'dashboard/homepage.js' %}"></script>
+<link rel="stylesheet" href="static/dashboard/styles.css">
+
+<div class='title'>
+	<span class='title-text'><h2>STAR COUNTER</h2></span>
+</div>
+
+<div class='description'>
+	<span class='desc-text'>Just upload an image of stars in the night sky and hit submit. Your childhood dream of counting them will finally be fulfilled.</span>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="file-upload">
+  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+  <div class="image-upload-wrap">
+    <input name="image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <input type="submit" class="remove-image"></button>
+	</div>
+  </div>
+  <!-- <div>
+	<input type="submit" value="Upload" />
+  </div> -->
+</div>
+</form>

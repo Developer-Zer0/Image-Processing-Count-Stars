@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="static/calculation/styles.css">
+
+<!-- {{n_stars}} -->
+<div class='plot'>
+	<img src="data:image/png;base64,{{image|safe}}">
+</div>
+<div class="answer">
+	<span class="answer-text"><h4>Approximately there are <strong>{{n_stars}}</strong> stars in the picture</h4></span>
+</div>

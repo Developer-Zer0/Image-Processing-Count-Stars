@@ -1,0 +1,23 @@
+body {
+	font-family: sans-serif;
+	background-color: #eeeeee;
+  }
+  
+  .answer {
+	background-color: #ffffff;
+	width: 600px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	padding: 20px;
+  }
+
+  .answer-text {
+	text-align: center;
+	color: #15824B;
+  }
+
+  .plot {
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 10px;
+  }
