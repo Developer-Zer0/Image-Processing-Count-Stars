@@ -15,18 +15,14 @@ import base64
 def dashboard(request):
 
 	if request.method == "POST":
-		# print(request.FILES['sentFile'])
-		f = request.FILES['image'] # here you get the files needed
+		f = request.FILES['image']
 		response = {}
 		file_name = "pic.jpg"
 		file_name_2 = default_storage.save(file_name, f)
 		file_url = default_storage.url(file_name_2)
 		original = glob.glob(file_url)
 		numpy_image = imread(original[0], as_grey=True)
-		# plt.imshow(numpy_image, cmap=cm.gray)
-		# plt.show()
 
-		print('hey')
 		blobs_log = blob_log(numpy_image, max_sigma=30, num_sigma=10, threshold=.1)
 		# Compute radii in the 3rd column.
 		blobs_log[:, 2] = blobs_log[:, 2] * sqrt(2)
@@ -40,8 +36,6 @@ def dashboard(request):
 			y, x, r = blob
 			c = plt.Circle((x, y), r+5, color='lime', linewidth=2, fill=False)
 			ax.add_patch(c)
-		# response['image'] = HttpResponse(content_type='image/jpg')
-		# FigureCanvas(fig).print_jpeg(response['image'])
 		buffer = BytesIO()
 		plt.savefig(buffer, format='png')
 		buffer.seek(0)
